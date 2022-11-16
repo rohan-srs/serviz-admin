@@ -7,7 +7,7 @@
     border-top-right-radius: 5rem;
     transition: 0.1s ease-in-out;
     &:hover{
-        box-shadow: 6px 0px 4px rgba(0, 0, 0, 0.15);
+        box-shadow: 7px 0px 4px rgba(0, 0, 0, 0.15);
     }
     height: 100%;
     background-color: var(--blackBackground);
@@ -36,6 +36,7 @@
             li{
                 border-right: 0.3rem solid transparent;
                 margin: 1rem 0;
+                padding-bottom: 0.3rem;
                 list-style-type: none;
                 svg{
                     font-size: 1.5rem;
