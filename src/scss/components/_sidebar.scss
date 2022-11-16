@@ -1,0 +1,62 @@
+@import "src/scss/components/_colors.scss";
+
+.sidebar{
+    position: fixed;
+    width: 15rem;
+    border-bottom-right-radius: 2.5rem;
+    border-top-right-radius: 5rem;
+    transition: 0.1s ease-in-out;
+    &:hover{
+        box-shadow: 6px 0px 4px rgba(0, 0, 0, 0.15);
+    }
+    height: 100%;
+    background-color: var(--blackBackground);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    .appname{
+        color: var(--yellowAccent);
+        font-size: 1.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+        font-weight: 900;
+    }
+    .links{
+        ul{
+            margin-bottom: 3rem;
+            .active{
+                
+                border-right: 0.3rem solid var(--yellowAccent);
+                a{
+                    color: var(--yellowAccent);
+                }
+            }
+            li{
+                border-right: 0.3rem solid transparent;
+                margin: 1rem 0;
+                list-style-type: none;
+                svg{
+                    font-size: 1.5rem;
+                }
+                
+                a{
+                    margin: 0 3rem;
+                    text-decoration: none;
+                    color: var(--whiteText);
+                    font-size: 1.1rem;
+                    display: flex;
+                    gap: 1.1rem;
+                }
+                transition: 0.3s ease-in-out;
+                &:hover{
+                    border-right-color: var(--yellowAccent);
+                    a{
+                        color: var(--yellowAccent);
+                    }
+                }
+            }
+        }
+    }
+}
