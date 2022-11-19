@@ -1,5 +1,5 @@
 import React from 'react';
-import "/home/jes/serviz-admin/src/scss/components/_login.scss";
+import "../scss/components/login.scss";
 
 
 export const Login = () => {

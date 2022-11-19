@@ -1,4 +1,4 @@
-@import '/home/jes/serviz-admin/src/scss/components/_colors.scss';
+@import './colors.scss';
 
 .Login {
 
@@ -21,7 +21,6 @@
 
         .logo {
             color: darkslategrey;
-            font-style: sepia;
             font-weight: bold;
             font-size: 25px;
         }
