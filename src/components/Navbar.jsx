@@ -13,18 +13,20 @@ export default function Navbar() {
         </div>
       <div className="container">
         <div className="search">
+          <BiSearchAlt />
             <input type="text" placeholder="Search..." />
         </div>
         <div className="profile">
             <FiBell className='bell' />
             <div className="avatar">
-              <FaUserSecret/>
-            </div>
+              <FaUserSecret className='img'/>
+              </div>
+            
             <div className="profile_name">
               <h4>Admin</h4>
               <h6>Admin</h6>
             </div>
-            <BsFillCaretDownFill/>
+            
         </div>
       </div>
     </div>
