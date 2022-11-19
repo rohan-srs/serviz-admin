@@ -25,38 +25,62 @@
     }
     .links{
         ul{
+            
             margin-bottom: 3rem;
-            .active{
-                
-                border-right: 0.3rem solid var(--yellowAccent);
-                a{
-                    color: var(--yellowAccent);
-                }
-            }
+            
+            
             li{
-                border-right: 0.3rem solid transparent;
+                .active{
+                
+                    border-right: 0.2rem solid var(--yellowAccent);
+                    border-bottom: 0.2rem solid var(--yellowAccent);
+                    border-radius: 0.8rem;
+                    a{
+                        color: var(--yellowAccent) !important;
+                        
+                        
+                    }
+                }
+                border-right: 0.2rem solid transparent;
+                border-bottom: 0.2rem solid transparent;
+                border-radius: 0.8rem;
                 margin: 1rem 0;
                 padding-bottom: 0.3rem;
                 list-style-type: none;
-                svg{
-                    font-size: 1.5rem;
-                }
+
+               
                 
-                a{
-                    margin: 0 3rem;
+                .linker{
+                    
                     text-decoration: none;
                     color: var(--whiteText);
-                    font-size: 1.1rem;
-                    display: flex;
-                    gap: 1.1rem;
+                    &:hover{
+                        svg{
+                            transition: 0.4s ease-in-out;
+                            font-size: 1.5rem;
+                            transform: scale(1.1);
+                        }
+                    }
+                    
+                        
+                        a{
+                            
+                            margin: 0 3rem;
+                            font-size: 1.1rem;
+                            display: flex;
+                            gap: 1.1rem;
+                        }
                 }
                 transition: 0.3s ease-in-out;
                 &:hover{
                     border-right-color: var(--yellowAccent);
+                    border-bottom-color: var(--yellowAccent);
+                    
                     a{
                         color: var(--yellowAccent);
                     }
                 }
+                
             }
         }
     }

@@ -1,4 +1,4 @@
-import React from 'react'
+import {React,useState} from 'react'
 import styled from 'styled-components'
 import {MdSpaceDashboard} from "react-icons/md"
 import {FaUsers} from "react-icons/fa"
@@ -10,35 +10,51 @@ import {FiLogOut} from "react-icons/fi"
 import Links from './Links'
 import { blackBackground, greyBackground, whiteText, yellowAccent,redAccent } from '../utils'
 
+
+
+
 export default function Sidebar() {
+
+    const [activeStatus,setActiveStatus] = useState(false);
+    
     const links1 = [
         {
             text: "Dashboard",
             icon: MdSpaceDashboard, 
             active: true,
+            linkz:"/Dashboard",
         },
         {
             text: "Users",
             icon: FaUsers, 
-            linkz:"D:/Admin_ServiZ/final/admin_serviz/src/components/Revenue.jsx",
+            active: false,
+            linkz:"/Users",
         },
         {
             text: "All Projects",
             icon: BsArchiveFill, 
+            active: false,
+            linkz:"/AllProjects",
         },
         {
             text: "Settings",
             icon: RiSettings5Fill, 
+            active: false,
+            linkz:"/Settings",
         }
     ];
     const links2 = [
         {
             text: "Requests",
             icon: FaLightbulb, 
+            active: false,
+            linkz:"/Requests",
         },
         {
             text: "Projects",
-            icon: BsFillFileEarmarkCodeFill, 
+            icon: BsFillFileEarmarkCodeFill,
+            active: false,
+            linkz:"/Projects", 
         },
         
     ];
