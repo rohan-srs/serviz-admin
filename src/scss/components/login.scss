@@ -1,0 +1,81 @@
+@import './colors.scss';
+
+.Login {
+
+    background-color: var(--yellowAccent);
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+
+    .formWrapper {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        gap: 10px;
+        align-items: center;
+
+        .logo {
+            color: darkslategrey;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .title {
+            color: darkslategrey;
+            font-size: 15px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+
+            label {
+                padding-left: 2rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 12px;
+                color: dodgerblue;
+                cursor: pointer;
+
+                img {
+                    width: 43px;
+                    height: 43px;
+                }
+            }
+
+            input {
+                padding: 15px;
+                border: none;
+                border-bottom: 1px solid grey;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: #413c3c;
+                }
+            }
+
+
+            button {
+                background-color: black;
+                color: whitesmoke;
+                border-radius: 2rem;
+                height: 45px;
+                cursor: pointer;
+            }
+
+        }
+
+
+    }
+}
