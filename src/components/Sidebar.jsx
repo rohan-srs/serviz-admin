@@ -8,13 +8,7 @@ import { BsFillFileEarmarkCodeFill } from "react-icons/bs";
 import { FaLightbulb } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import Links from "./Links";
-import {
-  blackBackground,
-  greyBackground,
-  whiteText,
-  yellowAccent,
-  redAccent,
-} from "../utils";
+import { whiteText, redAccent } from "../utils";
 
 export default function Sidebar() {
   const [activeStatus, setActiveStatus] = useState(false);

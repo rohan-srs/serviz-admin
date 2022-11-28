@@ -7,17 +7,18 @@ import { auth } from "../firebase";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    function onRegister() {
-      signInWithEmailAndPassword(auth, email, password).catch((error) =>
-        console.log(error)
-      );
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
       navigate("/");
+    } catch (err) {
+      console.log(err);
+      setErr(true);
     }
-    onRegister();
   };
 
   return (
@@ -39,6 +40,7 @@ export const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
           ></input>
           <button>Login</button>
+          {err && <span>Something went wrong</span>}
         </form>
       </div>
     </div>

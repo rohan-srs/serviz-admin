@@ -1,27 +1,50 @@
 import "./scss/style.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useContext } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthContext } from "./context/AuthContext";
+
 import { Login } from "./components/Login";
 import Home from "./components/Home";
-import Sidebar from "./components/Sidebar";
 import Dashboard from "./components/Dashboard";
-import { AuthProvider } from "./AuthProvider";
-import Users from "./components/Users";
 
 function App() {
+  const currentUser = useContext(AuthContext);
+
+  const ProtectedRoute = ({ children }) => {
+    console.log("User: ", currentUser);
+    if (!currentUser) {
+      return <Navigate to="/login" />;
+    }
+    return children;
+  };
+
   return (
-    <AuthProvider>
-      <div className="app">
-        <BrowserRouter>
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/login" element={<Login />} />
-            <Route exact path="/sidebar" element={<Sidebar />} />
-            <Route exact path="/Dashboard" element={<Dashboard />} />
-            <Route exact path="/Users" element={<Users />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    </AuthProvider>
+    <div className="app">
+      <BrowserRouter>
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route exact path="/login" element={<Login />} />
+          <Route exact path="/home" element={<Home />} />
+          <Route
+            exact
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 

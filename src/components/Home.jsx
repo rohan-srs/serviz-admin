@@ -1,14 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 import { signOut } from "firebase/auth";
-import { AuthContext } from "../AuthProvider";
+import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import { ref, onValue } from "firebase/database";
 import Sidebar from "./Sidebar";
 
 function Home() {
   const { currentUser } = useContext(AuthContext);
-  const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   const clickLogin = () => {
@@ -25,7 +23,7 @@ function Home() {
 
   return (
     <div className="mainContainer">
-      {currentUser && <p>Welcome, {username}</p>}
+      <p>Welcome</p>
       <div className="buttons">
         <button onClick={clickLogin}>
           {currentUser ? <Sidebar /> : "Login"}
