@@ -1,25 +1,26 @@
 .button {
-    margin: 0.5rem;
+    position: fixed;
     align-items: center;
-    justify-content: center;
-    border-right: 0.2rem solid var(--yellowAccent);
-    border-bottom: 0.5rem solid var(--yellowAccent);
-
+    width: 14.7rem;
+    margin-left: 0.2rem;
     border-radius: 1.5rem;
+    
     background-color: var(--blackBackground);
     .text {
-        align-items: center;
+        padding-left: 3.5rem;
         justify-content: center;
-        padding-left: 2rem;
-        font-size: 1.6rem;
+        font-size: 1.2rem;
         color: var(--whiteText);
-    }
-    .text:hover{
-        color: var(--blackBackground);
+        font-weight: bold;
     }
 }
-.button:hover {
-    background-color: var(--yellowAccent);
-    
 
+.button:hover {
+    transition: 0.1s ease-in-out;
+
+    border-right: 0.2rem solid var(--yellowAccent);
+    border-bottom: 0.3rem solid var(--yellowAccent);
+    .text {
+        color: var(--yellowAccent);
+    }
 }

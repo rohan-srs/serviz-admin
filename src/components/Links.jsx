@@ -13,10 +13,10 @@ export default function Links({links}) {
             return (
                 <li onClick={()=>setActiveState(!activeState)} className={activeState ? "active" : ""} >
                     <Link  className='linker' to={link.linkz}>
-                    <a>
+                    <div className="txticon">
                         <link.icon />
                         {link.text}
-                    </a>
+                    </div>
                     </Link>
                 </li>
             );

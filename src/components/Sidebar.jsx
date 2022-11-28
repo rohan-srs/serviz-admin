@@ -9,6 +9,7 @@ import { FaLightbulb } from "react-icons/fa";
 import { FiLogOut } from "react-icons/fi";
 import Links from "./Links";
 import { whiteText, redAccent } from "../utils";
+import Button from "./sidebar/Button";
 
 export default function Sidebar() {
   const [activeStatus, setActiveStatus] = useState(false);
@@ -57,32 +58,32 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="appname">ServiZ</div>
       <div className="links">
-        <Links links={links1} />
-        <Links links={links2} />
-        <Link>
-          <FiLogOut />
-          <h3>Logout</h3>
-        </Link>
+      <Button
+        name={"Dashboard"}
+        icon = {<MdSpaceDashboard/>}
+        link = {'/dashboard'}/>
+      <Button
+        name={"Users"}
+        icon = {<MdSpaceDashboard/>}
+        link = {'/users'}/>
+      <Button
+        name={"AllProjects"}
+        icon = {<MdSpaceDashboard/>}
+        link = {'/AllProjects'}/>
+      <Button
+        name={"Settings"}
+        icon = {<MdSpaceDashboard/>}
+        link = {'/Settings'}/>
+      <Button
+        name={"Requests"}
+        icon = {<MdSpaceDashboard/>}
+        link = {'/Requests'}/>
+      <Button
+        name={"Projects"}
+        icon = {<MdSpaceDashboard/>}
+        link = {'/Projects'}/>
+            
       </div>
     </div>
   );
 }
-
-const Link = styled.li`
-  padding-top: 6rem;
-  margin-left: 25%;
-  margin-bottom: 2rem;
-  display: flex;
-  gap: 1rem;
-  color: ${whiteText};
-  cursor: pointer;
-  h3 {
-    font-weight: 600;
-    color: ${redAccent};
-  }
-  svg {
-    margin-top: 2%;
-    font-size: 1.2rem;
-    color: ${redAccent};
-  }
-`;

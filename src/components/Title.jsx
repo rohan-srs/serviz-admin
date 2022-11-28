@@ -1,13 +1,16 @@
 import React from "react";
 import Button from "./sidebar/Button";
+import { MdSpaceDashboard } from "react-icons/md";
 
 export default function Sidebar() {
   return (
     <div className="sidebar">
-      <h1>dusfhods</h1>
       <div className="appname">ServiZ</div>
       <div className="links">
-        <Button />
+        <Button
+        name={"Dashboard"}
+        icon = {<MdSpaceDashboard/>}
+        link = {'/dashboard'}/>
       </div>
     </div>
   );
