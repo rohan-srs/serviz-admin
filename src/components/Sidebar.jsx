@@ -14,46 +14,8 @@ import Button from "./sidebar/Button";
 export default function Sidebar() {
   const [activeStatus, setActiveStatus] = useState(false);
 
-  const links1 = [
-    {
-      text: "Dashboard",
-      icon: MdSpaceDashboard,
-      active: true,
-      linkz: "/Dashboard",
-    },
-    {
-      text: "Users",
-      icon: FaUsers,
-      active: false,
-      linkz: "/Users",
-    },
-    {
-      text: "All Projects",
-      icon: BsArchiveFill,
-      active: false,
-      linkz: "/AllProjects",
-    },
-    {
-      text: "Settings",
-      icon: RiSettings5Fill,
-      active: false,
-      linkz: "/Settings",
-    },
-  ];
-  const links2 = [
-    {
-      text: "Requests",
-      icon: FaLightbulb,
-      active: false,
-      linkz: "/Requests",
-    },
-    {
-      text: "Projects",
-      icon: BsFillFileEarmarkCodeFill,
-      active: false,
-      linkz: "/Projects",
-    },
-  ];
+ 
+  
   return (
     <div className="sidebar">
       <div className="appname">ServiZ</div>
@@ -64,23 +26,23 @@ export default function Sidebar() {
         link = {'/dashboard'}/>
       <Button
         name={"Users"}
-        icon = {<MdSpaceDashboard/>}
+        icon = {<FaUsers/>}
         link = {'/users'}/>
       <Button
         name={"AllProjects"}
-        icon = {<MdSpaceDashboard/>}
+        icon = {<BsArchiveFill/>}
         link = {'/AllProjects'}/>
       <Button
         name={"Settings"}
-        icon = {<MdSpaceDashboard/>}
+        icon = {<RiSettings5Fill/>}
         link = {'/Settings'}/>
       <Button
         name={"Requests"}
-        icon = {<MdSpaceDashboard/>}
+        icon = {<FaLightbulb/>}
         link = {'/Requests'}/>
       <Button
         name={"Projects"}
-        icon = {<MdSpaceDashboard/>}
+        icon = {<BsFillFileEarmarkCodeFill/>}
         link = {'/Projects'}/>
             
       </div>
