@@ -1,4 +1,5 @@
 @import "base/base";
+//Components
 @import "components/title";
 @import "components/sidebar";
 @import "components/navbar";
@@ -7,3 +8,5 @@
 @import "components/dashboard";
 @import "components/allProjects";
 @import "components/login";
+//Sidebar
+@import "components/sidebar/button.scss"

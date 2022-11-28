@@ -1,0 +1,25 @@
+.button {
+    margin: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    border-right: 0.2rem solid var(--yellowAccent);
+    border-bottom: 0.5rem solid var(--yellowAccent);
+
+    border-radius: 1.5rem;
+    background-color: var(--blackBackground);
+    .text {
+        align-items: center;
+        justify-content: center;
+        padding-left: 2rem;
+        font-size: 1.6rem;
+        color: var(--whiteText);
+    }
+    .text:hover{
+        color: var(--blackBackground);
+    }
+}
+.button:hover {
+    background-color: var(--yellowAccent);
+    
+
+}
