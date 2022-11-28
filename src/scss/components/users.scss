@@ -1,3 +1,5 @@
+@import "./colors.scss";
+
 .users {
   height: 100vh;
   .users-in {
@@ -5,5 +7,25 @@
     padding-left: 255px;
     height: 100vh;
     align-items: center;
+
+    .user-listContainer {
+      -webkit-box-shadow: 10px 10px 54px 0px rgba(0, 0, 0, 0.65);
+      -moz-box-shadow: 10px 10px 54px 0px rgba(0, 0, 0, 0.65);
+      box-shadow: 10px 10px 54px 0px rgba(0, 0, 0, 0.65);
+      padding: 20px;
+      background-color: var(--blackBackground);
+      border-radius: 2rem;
+      width: 97%;
+      margin-top: 20px;
+      border: none;
+      outline: none;
+
+      .listTile {
+        font-weight: 500;
+        margin-bottom: 15px;
+        border: none;
+        outline: none;
+      }
+    }
   }
 }

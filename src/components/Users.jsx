@@ -1,5 +1,4 @@
 import React from "react";
-import { List, ListItem, ListItemAvatar, ListItemText } from "@mui/material";
 import Navbar from "./Navbar";
 import "../scss/components/users.scss";
 import Sidebar from "./Sidebar";
@@ -10,7 +9,12 @@ export default function Users() {
       <Sidebar />
       <div className="users-in">
         <Navbar />
-        <div className="user-list"></div>
+
+        <div className="user-listContainer">
+          <div className="listTile">
+            <Table />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,28 @@
+@import "./colors.scss";
+
+.table {
+  background-color: var(--whiteText);
+  border-radius: 2rem;
+}
+
+.cellAction {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .viewButton {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: darkblue;
+    border: 1px solid rgba(0, 0, 139, 0.905);
+    cursor: pointer;
+  }
+
+  .deleteButton {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: crimson;
+    border: 1px solid rgb(220, 34, 71);
+    cursor: pointer;
+  }
+}
