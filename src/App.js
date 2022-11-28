@@ -4,12 +4,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthContext } from "./context/AuthContext";
 
 import { Login } from "./components/Login";
-import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
-import Title from "./components/Title";
 
 function App() {
-  const currentUser = useContext(AuthContext);
+  const { currentUser } = useContext(AuthContext);
 
   const ProtectedRoute = ({ children }) => {
     console.log("User: ", currentUser);
@@ -33,8 +31,6 @@ function App() {
             }
           />
           <Route exact path="/login" element={<Login />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/x" element={<Title />} />
           <Route
             exact
             path="/dashboard"
