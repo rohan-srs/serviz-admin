@@ -5,6 +5,7 @@ import { AuthContext } from "./context/AuthContext";
 
 import { Login } from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import Users from "./components/Users";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -33,10 +34,10 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route
             exact
-            path="/dashboard"
+            path="/users"
             element={
               <ProtectedRoute>
-                <Dashboard />
+                <Users />
               </ProtectedRoute>
             }
           />

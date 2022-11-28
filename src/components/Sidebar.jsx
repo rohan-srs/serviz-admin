@@ -14,27 +14,23 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="appname">ServiZ</div>
       <div className="links">
-        <Button
-          name={"Dashboard"}
-          icon={<MdSpaceDashboard />}
-          link={"/dashboard"}
-        />
-        <Button name={"Users"} icon={<FaUsers />} link={"/users"} />
+        <Button name={"Dashboard"} icon={<MdSpaceDashboard />} route={"/"} />
+        <Button name={"Users"} icon={<FaUsers />} route={"/users"} />
         <Button
           name={"AllProjects"}
           icon={<BsArchiveFill />}
-          link={"/AllProjects"}
+          route={"/allprojects"}
         />
         <Button
           name={"Settings"}
           icon={<RiSettings5Fill />}
-          link={"/Settings"}
+          route={"/settings"}
         />
-        <Button name={"Requests"} icon={<FaLightbulb />} link={"/Requests"} />
+        <Button name={"Requests"} icon={<FaLightbulb />} route={"/requests"} />
         <Button
           name={"Projects"}
           icon={<BsFillFileEarmarkCodeFill />}
-          link={"/Projects"}
+          route={"/projects"}
         />
 
         <Logout />

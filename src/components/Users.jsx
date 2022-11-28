@@ -1,9 +1,10 @@
+import "../scss/components/users.scss";
 import React from "react";
 import Navbar from "./Navbar";
-import "../scss/components/users.scss";
 import Sidebar from "./Sidebar";
+import Table from "./Table";
 
-export default function Users() {
+const Users = () => {
   return (
     <div className="users">
       <Sidebar />
@@ -18,4 +19,6 @@ export default function Users() {
       </div>
     </div>
   );
-}
+};
+
+export default Users;
