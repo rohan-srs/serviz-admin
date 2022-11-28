@@ -1,14 +1,25 @@
-import React from 'react'
-import Navbar from './Navbar'
+import React from "react";
+import Navbar from "./Navbar";
+import "../scss/components/dashboard.scss";
+import Sidebar from "./Sidebar";
+import Widget from "./Widget";
+import Chart from "./Chart";
 
 export default function Dashboard() {
   return (
-    <div className="dashboard">
-      <Navbar />
-      <div className="grid">
-        <div className="one"></div>
-        <div className="two"></div>
+    <div className="Dashboardout">
+      <Sidebar />
+      <div className="Dashboard-in">
+        <Navbar />
+        <div className="widgets">
+          <Widget type="Students" />
+          <Widget type="Projects" />
+          <Widget type="Teachers" />
+        </div>
+        <div className="charts">
+          <Chart />
+        </div>
       </div>
     </div>
-  )
+  );
 }

@@ -4,22 +4,12 @@ import { signOut } from "firebase/auth";
 import { AuthContext } from "../AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { ref, onValue } from "firebase/database";
+import Sidebar from "./Sidebar";
 
 function Home() {
   const { currentUser } = useContext(AuthContext);
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
-  useEffect(() => {
-    if (currentUser) {
-      const starCountRef = ref(db, "users/" + currentUser.uid);
-      onValue(starCountRef, (snapshot) => {
-        if (snapshot.exists()) {
-          var data = snapshot.val();
-          setUsername(data.firstName + " " + data.lastName);
-        }
-      });
-    }
-  }, [currentUser]);
 
   const clickLogin = () => {
     if (currentUser) {
@@ -35,11 +25,10 @@ function Home() {
 
   return (
     <div className="mainContainer">
-      <h1>Home</h1>
       {currentUser && <p>Welcome, {username}</p>}
       <div className="buttons">
         <button onClick={clickLogin}>
-          {currentUser ? "Log Out" : "Login"}
+          {currentUser ? <Sidebar /> : "Login"}
         </button>
         {!currentUser && <button onClick={clickSignup}>Sign Up</button>}
       </div>

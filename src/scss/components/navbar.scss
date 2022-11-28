@@ -1,54 +1,64 @@
-@import "./_colors";
+@import "./colors";
 
-@mixin getNavbarStyles {
-  .navbar {
+.navbar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+
+  .wrapper {
+    width: 100%;
     display: flex;
+    padding: 20px;
+    align-items: center;
     justify-content: space-between;
-    .container {
+
+    .search {
       display: flex;
-      .search {
-        background-color: var(--blackBackground);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 2rem;
-        padding: 0.5rem 1rem;
-        color: var(--yellowAccent);
-        gap: 1rem;
-        font-size: 1.7rem;
-        height: 4rem;
-        input {
-          border: none;
-          color: var(--yellowAccent);
-          background-color: var(--greyBackground0);
-          &:focus {
-            outline: none;
-          }
+      align-items: center;
+      border: solid 2px var(--blackBackground);
+      padding: 3px;
+      border-radius: 2rem;
+
+      input {
+        border: none;
+        outline: none;
+        background-color: transparent;
+
+        &::placeholder {
+          margin-left: 2rem;
+          font-size: 12px;
         }
       }
     }
-    .profile {
+
+    .items {
       display: flex;
       align-items: center;
-      gap: 1.4rem;
-      margin-left: 1rem;
-      .bell {
-        font-size: 1.5rem;
-        color: var(--blackBackground);
-      }
-      .avatar {
-        gap: 1rem;
-        .img {
-          height: 3rem;
-          font-size: 3rem;
-          border-radius: 2rem;
+
+      .item {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+        position: relative;
+
+        .counter {
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: var(--redAccent);
+          color: var(--yellowAccent);
+          font-size: 8px;
+          position: absolute;
+          top: -5px;
+          right: -5px;
         }
 
-        .profile_name {
-          align-items: center;
-          h6 {
-            padding-left: 0.5rem;
-          }
+        .icon {
+          font-size: 25px;
         }
       }
     }
