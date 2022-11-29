@@ -1,29 +1,60 @@
 .button {
-    align-items: center;
-    width: 14.7rem;
-    margin-left: 0.2rem;
-    border-radius: 1.5rem;
-    
-    
-    background-color: var(--blackBackground);
-    .text {
-        padding-left: 2.5rem;
-        font-size: 1.2rem;
-        color: var(--whiteText);
-        font-weight: bold;
-    }
-    .icon{
-        color: var(--whiteText);
-        font-size: 1.6rem;
-    }
+  cursor: pointer;
+  position: relative;
+  align-items: center;
+  width: 14.7rem;
+  margin-left: 0.2rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  padding: 1rem;
+
+  background-color: var(--blackBackground);
+  .text {
+    font-size: 1.2rem;
+    color: var(--whiteText);
+    font-weight: bold;
+  }
+  .icon {
+    color: var(--whiteText);
+    font-size: 1.6rem;
+    padding-left: 0.7rem;
+  }
 }
 
 .button:hover {
-    transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
+  border-right: 0.2rem solid var(--yellowAccent);
+  border-bottom: 0.3rem solid var(--yellowAccent);
+  .text {
+    transition: 0.3s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    color: var(--yellowAccent);
+  }
+  .icon {
+    color: var(--yellowAccent);
+    animation: tit-shaking 0.35s;
+    transform: scale(1.2);
+  }
+}
 
-    border-right: 0.2rem solid var(--yellowAccent);
-    border-bottom: 0.3rem solid var(--yellowAccent);
-    .text {
-        color: var(--yellowAccent);
-    }
+@keyframes tit-shaking {
+  0% {
+    transform: rotate(0deg);
+    transform: scale(1);
+  }
+  25% {
+    transform: rotate(7deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-7deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    transform: scale(1.2);
+  }
 }

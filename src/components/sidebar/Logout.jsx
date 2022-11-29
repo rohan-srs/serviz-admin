@@ -17,7 +17,7 @@ export default function Logout() {
       <div className="logouticon">
         <FiLogOut />
       </div>
-      <div className="logouttext">LOgout</div>
+      <div className="logouttext">Logout</div>
     </div>
   );
 }

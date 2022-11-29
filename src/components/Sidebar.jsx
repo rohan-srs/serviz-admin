@@ -32,9 +32,8 @@ export default function Sidebar() {
           icon={<BsFillFileEarmarkCodeFill />}
           route={"/projects"}
         />
-
-        <Logout />
       </div>
+      <Logout />
     </div>
   );
 }

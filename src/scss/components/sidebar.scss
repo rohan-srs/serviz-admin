@@ -1,30 +1,29 @@
 @import "src/scss/components/colors.scss";
 
-.sidebar{
-    position: fixed;
-    width: 15rem;
-    border-bottom-right-radius: 2.5rem;
-    border-top-right-radius: 5rem;
-    transition: 0.1s ease-in-out;
-    &:hover{
-        box-shadow: 7px 0px 4px rgba(0, 0, 0, 0.15);
-    }
-    height: 100%;
-    background-color: var(--blackBackground);
+.sidebar {
+  position: fixed;
+  width: 15rem;
+  border-bottom-right-radius: 2.5rem;
+  border-top-right-radius: 5rem;
+  transition: 0.1s ease-in-out;
+  &:hover {
+    box-shadow: 7px 0px 4px rgba(0, 0, 0, 0.15);
+  }
+  height: 100%;
+  background-color: var(--blackBackground);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  .appname {
+    cursor: default;
+    color: var(--yellowAccent);
+    font-size: 1.6rem;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    .appname{
-        color: var(--yellowAccent);
-        font-size: 1.6rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 2rem 0;
-        font-weight: 900;
-    }
-    .links{
-        justify-content: space-around;
-       
-    }
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    font-weight: 900;
+  }
+  .links {
+  }
 }
