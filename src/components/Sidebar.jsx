@@ -13,6 +13,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="appname">ServiZ</div>
+      
       <div className="links">
         <Button name={"Dashboard"} icon={<MdSpaceDashboard />} route={"/"} />
         <Button name={"Users"} icon={<FaUsers />} route={"/users"} />
