@@ -1,8 +1,8 @@
 import { DataGrid } from "@mui/x-data-grid";
-import React from "react";
+import  React from "react";
 import "../scss/components/table.scss";
-import { motion } from "framer-motion";
 import { useState } from "react";
+import Profilepopup from "./users/Profilepopup";
 
 const columns = [
   { field: "id", headerName: "ID", width: 70 },
@@ -47,6 +47,8 @@ const rows = [
 ];
 
 const Table = () => {
+  const [modal, setModal] = useState(false);
+  const Toggle = () => setModal(!modal);  
   const actionColumn = [
     {
       field: "action",
@@ -55,14 +57,16 @@ const Table = () => {
       renderCell: () => {
         return (
           <div className="cellAction">
-            <div className="viewButton">View</div>
+            <div className="viewButton" onClick={()=>Toggle()}>
+              View
+            </div>
+            
           </div>
         );
       },
     },
   ];
   return (
-    
     <div className="table" style={{ height: 550, width: "100%" }}>
       <DataGrid
         sx={{
@@ -75,6 +79,7 @@ const Table = () => {
         rowsPerPageOptions={[8]}
         checkboxSelection
       />
+      <Profilepopup show={modal} title="My Modal" close={Toggle}/>
     </div>
   );
 };
