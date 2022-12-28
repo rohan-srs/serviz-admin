@@ -3,7 +3,8 @@ import React from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import Table from "./Table";
-import { addDoc, collection, doc, setDoc } from "firebase/firestore";
+import Button from '@mui/material/Button';
+import { addDoc, collection} from "firebase/firestore";
 import { db } from "../firebase";
 
 const Users = () => {
@@ -24,7 +25,7 @@ const Users = () => {
         <Navbar />
 
         <div className="user-listContainer">
-          <button onClick={handleAdd}>Add</button>
+          <Button variant="outlined" className="addButton" onClick={handleAdd}>Add</Button>
           <div className="listTile">
             <Table />
           </div>

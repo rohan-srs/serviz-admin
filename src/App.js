@@ -6,6 +6,7 @@ import { AuthContext } from "./context/AuthContext";
 import { Login } from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Users from "./components/Users";
+import New from "./components/New";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -41,6 +42,8 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route exact path="/addnewuser" element={<New />} />
         </Routes>
       </BrowserRouter>
     </div>

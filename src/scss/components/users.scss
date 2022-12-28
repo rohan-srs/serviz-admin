@@ -19,6 +19,16 @@
       margin-top: 20px;
       border: none;
       outline: none;
+      display: flex;
+      flex-direction: column;
+      
+
+      .addButton{
+        color: var(--yellowAccent);
+        border-color: var(--yellowAccent);
+        margin-bottom: 1rem;
+        margin-left: auto;
+      }
 
       .listTile {
         font-weight: 500;
