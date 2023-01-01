@@ -4,19 +4,14 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import Table from "./Table";
 import Button from '@mui/material/Button';
-import { addDoc, collection} from "firebase/firestore";
-import { db } from "../firebase";
+import {useNavigate} from 'react-router-dom';
 
 const Users = () => {
-  const handleAdd = async (e) => {
-    e.preventDefault();
+  const navigate = useNavigate();
 
-    const res = await addDoc(collection(db, "users"), {
-      name: "Hola",
-      reg_no: "2062025",
-    });
-
-    console.log(res.id);
+  const navigateToaddnewuser = () => {
+    // 👇️ navigate to /contacts
+    navigate('/addnewuser');
   };
   return (
     <div className="users">
@@ -25,7 +20,7 @@ const Users = () => {
         <Navbar />
 
         <div className="user-listContainer">
-          <Button variant="outlined" className="addButton" onClick={handleAdd}>Add</Button>
+          <Button variant="outlined" className="addButton" onClick={navigateToaddnewuser}>Add</Button>
           <div className="listTile">
             <Table />
           </div>
