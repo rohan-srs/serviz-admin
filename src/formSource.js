@@ -10,21 +10,21 @@ export const UserInputs = [
         id:"reg_no",
         label:"Reg No.",
         type:"text",
-        placeholder:"john doe"
+        placeholder:"2062035"
 
     },
     {
         id:"email",
         label:"Email",
         type:"email",
-        placeholder:"john doe"
+        placeholder:"johndoe@gmail.com"
 
     },
     {
         id:"password",
         label:"Password",
         type:"password",
-        placeholder:"john doe"
+        placeholder:"johndoes"
 
     }
 ]
