@@ -7,9 +7,11 @@ import Chart from "./Chart";
 
 export default function Dashboard() {
   return (
-    <div className="Dashboardout">
-      <Sidebar />
-      <div className="Dashboard-in">
+    <div className="Out">
+      <div className="Dashboard-side">
+        <Sidebar />
+      </div>
+      <div className="Dashboard-main">
         <Navbar />
         <div className="widgets">
           <Widget type="Students" />
