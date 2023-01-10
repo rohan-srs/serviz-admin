@@ -1,11 +1,17 @@
 @import "./colors";
 
-.new{
+.out{
   width:100%;
+  display: flex;
+  flex-direction: row;
+
+  .new{
+    height: 100vh;
+  }
 
   .newContainer{
     padding-top: 1rem;
-    padding-left: 255px;
+    padding-left: 1rem;
     height: 100vh;
     align-items: center;
     
@@ -67,4 +73,5 @@
       }
     }
   }
+  
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../Navbar";
 
 export default function Profilepopup({ show, close }) {
   return (
@@ -10,9 +9,7 @@ export default function Profilepopup({ show, close }) {
             <header className="modal_header">
               <h2 className="modal_header-title"> Modal Title </h2>
             </header>
-            <main className="modal_content">
-              Main
-            </main>
+            <main className="modal_content">Main</main>
             <footer className="modal_footer">
               <button className="modal-close" onClick={() => close()}>
                 Cancel

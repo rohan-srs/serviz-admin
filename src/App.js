@@ -7,6 +7,7 @@ import { Login } from "./components/Login";
 import Dashboard from "./components/Dashboard";
 import Users from "./components/Users";
 import New from "./components/New";
+import AllProjects from "./components/AllProjects"
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -44,6 +45,7 @@ function App() {
           />
 
           <Route exact path="/addnewuser" element={<New />} />
+          <Route exact path="/allprojects" element={<AllProjects/>} />
         </Routes>
       </BrowserRouter>
     </div>
