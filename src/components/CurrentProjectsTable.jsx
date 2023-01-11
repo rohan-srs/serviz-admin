@@ -1,16 +1,15 @@
 import { DataGrid } from "@mui/x-data-grid";
 import React from "react";
-import "../scss/components/table.scss";
+import "../scss/components/currentProjectsTable.scss";
 import { useState } from "react";
-import Profilepopup from "./users/Profilepopup";
 import { useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import Profilepopup from "./users/Profilepopup";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 70 },
-  { field: "reg_no", headerName: "Register No", width: 100 },
-  { field: "name", headerName: "Name", width: 150 },
+  { field: "project_title", headerName: "Project Title", width: 150 },
+  { field: "year", headerName: "Year", width: 150 },
   {
     field: "classname",
     headerName: "Class",
@@ -25,31 +24,7 @@ const columns = [
   },
 ];
 
-// const rows = [
-//   {
-//     id: 1,
-//     regno: "2062025",
-//     Name: "Jon",
-//     class: "AIML",
-//     groupid: "G2062025AIML",
-//   },
-//   {
-//     id: 2,
-//     regno: "2062025",
-//     Name: "Jon",
-//     class: "AIML",
-//     groupid: "G2062025AIML",
-//   },
-//   {
-//     id: 3,
-//     regno: "2062025",
-//     Name: "Jon",
-//     class: "AIML",
-//     groupid: "G2062025AIML",
-//   },
-// ];
-
-const Table = () => {
+const ProjectsTable = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -70,7 +45,6 @@ const Table = () => {
     fetchData();
   }, []);
   const [modal, setModal] = useState(false);
-  var CellValll;
   const Toggle = () => setModal(!modal);
   const actionColumn = [
     {
@@ -84,8 +58,7 @@ const Table = () => {
               className="viewButton"
               onClick={() => {
                 Toggle();
-                CellValll = cellValues;
-                console.log(CellValll);
+                console.log(cellValues);
               }}
             >
               View
@@ -104,13 +77,13 @@ const Table = () => {
         rows={data}
         getRowId={(rows) => rows.id}
         columns={columns.concat(actionColumn)}
-        pageSize={8}
-        rowsPerPageOptions={[8]}
+        pageSize={12}
+        rowsPerPageOptions={[12]}
         checkboxSelection
       />
-      <Profilepopup show={modal} title="My Modal" close={Toggle} CellValll />
+      <Profilepopup show={modal} title="My Modal" close={Toggle} />
     </div>
   );
 };
 
-export default Table;
+export default ProjectsTable;
