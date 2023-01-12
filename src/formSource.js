@@ -26,5 +26,12 @@ export const UserInputs = [
         type:"password",
         placeholder:"johndoes"
 
+    },
+    {
+        id:"role",
+        label:"role",
+        type:"text",
+        placeholder:"student"
+
     }
 ]
