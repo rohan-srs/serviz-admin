@@ -4,50 +4,51 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import React, { useState, useEffect } from "react";
+import { db } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      let list = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setData(list);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   const columns = [
-    { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID" },
+    { field: "id", headerName: "ID" },
     {
-      field: "name",
-      headerName: "Name",
+      field: "reg_no",
+      headerName: "Reg No",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "name",
+      headerName: "Name",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "classname",
+      headerName: "Class",
       flex: 1,
     },
     {
-      field: "address",
-      headerName: "Address",
-      flex: 1,
-    },
-    {
-      field: "city",
-      headerName: "City",
-      flex: 1,
-    },
-    {
-      field: "zipCode",
-      headerName: "Zip Code",
+      field: "grp_id",
+      headerName: "Group ID",
       flex: 1,
     },
   ];
@@ -55,8 +56,8 @@ const Contacts = () => {
   return (
     <Box m="20px">
       <Header
-        title="CONTACTS"
-        subtitle="List of Contacts for Future Reference"
+        title="USERS"
+        subtitle="List of All Users"
       />
       <Box
         m="40px 0 0 0"
@@ -91,7 +92,7 @@ const Contacts = () => {
         }}
       >
         <DataGrid
-          rows={mockDataContacts}
+          rows={data}
           columns={columns}
           components={{ Toolbar: GridToolbar }}
         />

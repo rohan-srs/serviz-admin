@@ -1,45 +1,68 @@
 import { Box, Typography, useTheme } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
-import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
+import React, { useState, useEffect } from "react";
+import { db } from "../../firebase";
+import { collection, getDocs } from "firebase/firestore";
 
 const Invoices = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      let list = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setData(list);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "name",
-      headerName: "Name",
+      field: "reg_no",
+      headerName: "Reg No",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "name",
+      headerName: "Name",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "classname",
+      headerName: "Class",
       flex: 1,
     },
     {
-      field: "cost",
-      headerName: "Cost",
-      flex: 1,
-      renderCell: (params) => (
-        <Typography color={colors.greenAccent[500]}>
-          ${params.row.cost}
-        </Typography>
-      ),
-    },
-    {
-      field: "date",
-      headerName: "Date",
+      field: "grp_id",
+      headerName: "Group ID",
       flex: 1,
     },
+    // {
+    //   field: "cost",
+    //   headerName: "Cost",
+    //   flex: 1,
+    //   renderCell: (params) => (
+    //     <Typography color={colors.greenAccent[500]}>
+    //       ${params.row.cost}
+    //     </Typography>
+    //   ),
+    // },
+    // {
+    //   field: "date",
+    //   headerName: "Date",
+    //   flex: 1,
+    // },
   ];
 
   return (
@@ -74,7 +97,7 @@ const Invoices = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
+        <DataGrid checkboxSelection rows={data} columns={columns} />
       </Box>
     </Box>
   );

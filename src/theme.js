@@ -117,6 +117,9 @@ export const tokens = (mode) => ({
           800: "#c3c6fd",
           900: "#e1e2fe",
         },
+        yellowAccent: {
+          100: "#FFD369",
+        },
       }),
 });
 
