@@ -8,11 +8,15 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import React, { useState } from "react";
+import Modal from "./Notifications_Container";
+import NotificationCenter from "react-notification-center-component";
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
@@ -37,7 +41,11 @@ const Topbar = () => {
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-        <IconButton>
+        <IconButton
+          onClick={() => {
+            setOpenModal(!openModal);
+          }}
+        >
           <NotificationsOutlinedIcon />
         </IconButton>
         <IconButton>
@@ -47,6 +55,7 @@ const Topbar = () => {
           <PersonOutlinedIcon />
         </IconButton>
       </Box>
+      {openModal && <Modal />}
     </Box>
   );
 };
