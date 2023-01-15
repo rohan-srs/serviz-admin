@@ -10,7 +10,6 @@ import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import React, { useState } from "react";
 import Modal from "./Notifications_Container";
-import NotificationCenter from "react-notification-center-component";
 
 const Topbar = () => {
   const theme = useTheme();
