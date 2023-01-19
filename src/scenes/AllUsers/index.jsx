@@ -1,12 +1,16 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { Box } from "@mui/material";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
+import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
+import { useTheme } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
-const Invoices = () => {
+const AllUsers = () => {
+  const theme = useTheme();
+  const colors = tokens(theme.palette.mode);
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -23,8 +27,7 @@ const Invoices = () => {
     };
     fetchData();
   }, []);
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
+
   const columns = [
     { field: "id", headerName: "ID" },
     {
@@ -48,26 +51,11 @@ const Invoices = () => {
       headerName: "Group ID",
       flex: 1,
     },
-    // {
-    //   field: "cost",
-    //   headerName: "Cost",
-    //   flex: 1,
-    //   renderCell: (params) => (
-    //     <Typography color={colors.greenAccent[500]}>
-    //       ${params.row.cost}
-    //     </Typography>
-    //   ),
-    // },
-    // {
-    //   field: "date",
-    //   headerName: "Date",
-    //   flex: 1,
-    // },
   ];
 
   return (
     <Box m="20px">
-      <Header title="INVOICES" subtitle="List of Invoice Balances" />
+      <Header title="USERS" subtitle="List of All Users" />
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -82,7 +70,7 @@ const Invoices = () => {
             color: colors.greenAccent[300],
           },
           "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
+            backgroundColor: colors.blueAccent[400],
             borderBottom: "none",
           },
           "& .MuiDataGrid-virtualScroller": {
@@ -95,12 +83,19 @@ const Invoices = () => {
           "& .MuiCheckbox-root": {
             color: `${colors.greenAccent[200]} !important`,
           },
+          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+            color: `${colors.grey[100]} !important`,
+          },
         }}
       >
-        <DataGrid checkboxSelection rows={data} columns={columns} />
+        <DataGrid
+          rows={data}
+          columns={columns}
+          components={{ Toolbar: GridToolbar }}
+        />
       </Box>
     </Box>
   );
 };
 
-export default Invoices;
+export default AllUsers;

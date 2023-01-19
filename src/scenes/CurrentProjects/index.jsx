@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../theme";
 
-const FAQ = () => {
+const CurrentProjects = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   return (
@@ -83,4 +83,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default CurrentProjects;

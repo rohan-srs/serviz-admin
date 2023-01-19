@@ -8,7 +8,7 @@ import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { setDoc, doc } from "firebase/firestore";
 
-const Form = () => {
+const AddNewUser = () => {
   const [currentValue, setCurrentValue] = useState([]);
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
@@ -170,4 +170,4 @@ const initialValues = {
   // address2: "",
 };
 
-export default Form;
+export default AddNewUser;

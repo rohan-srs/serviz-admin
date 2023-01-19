@@ -25,9 +25,10 @@ const Dashboard = () => {
 
         <Box>
           <Button
+            className="drreports"
             sx={{
               backgroundColor: colors.blueAccent[700],
-              color: colors.grey[100],
+              color: colors.grey[600],
               fontSize: "14px",
               fontWeight: "bold",
               padding: "10px 20px",
@@ -125,7 +126,7 @@ const Dashboard = () => {
         </Box>
 
         {/* ROW 2 */}
-        <Box
+        {/* <Box
           gridColumn="span 8"
           gridRow="span 2"
           backgroundColor={colors.primary[400]}
@@ -214,7 +215,7 @@ const Dashboard = () => {
               </Box>
             </Box>
           ))}
-        </Box>
+        </Box> */}
 
         {/* ROW 3 */}
         <Box
