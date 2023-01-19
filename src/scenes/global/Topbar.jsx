@@ -16,6 +16,7 @@ const Topbar = () => {
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
   const [openModal, setOpenModal] = useState(false);
+  if (window.location.pathname === "/login") return null;
 
   return (
     <Box display="flex" justifyContent="space-between" p={2}>

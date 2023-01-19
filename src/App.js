@@ -11,6 +11,7 @@ import Calendar from "./scenes/calendar/calendar";
 import PastProjects from "./scenes/PastProjects";
 import AddNewUser from "./scenes/AddNewUser";
 import AllUsers from "./scenes/AllUsers";
+import Login from "./scenes/login/Login";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -32,6 +33,7 @@ function App() {
               <Route path="/addnewuser" element={<AddNewUser />} />
               <Route path="/currentprojects" element={<CurrentProjects />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route path="/login" element={<Login />}/>
             </Routes>
           </main>
         </div>
