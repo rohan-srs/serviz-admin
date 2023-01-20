@@ -11,6 +11,7 @@ export default function Logout() {
     if (currentUser) {
       signOut(auth);
     }
+    window.location.reload();
   };
 
   return (

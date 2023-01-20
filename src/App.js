@@ -14,7 +14,9 @@ import AllUsers from "./scenes/AllUsers";
 import Login from "./scenes/login/Login";
 import {AuthContext, AuthContextProvider} from "./context/AuthContext";
 
-
+import { Outlet } from 'react-router';
+import WithoutGlobal from "./context/WithoutGlobal";
+import WithGlobal from "./context/WithGlobal";
 
 
 function App() {
@@ -35,23 +37,29 @@ function App() {
         <CssBaseline />
         <AuthContextProvider>
         <BrowserRouter>
-        <div>
-        <Routes><Route path="/login" element={<Login/>}/></Routes>
-        </div>
+        
+        
+        
         <div className="app">
           
-          <Sidebar isSidebar={isSidebar} />
+          {/* <Sidebar isSidebar={isSidebar} /> */}
           <main className="content">
-            <Topbar setIsSidebar={setIsSidebar} />
+            {/* <Topbar setIsSidebar={setIsSidebar} /> */}
             
             <Routes>
-              <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-              <Route path="/allprojects" element={<ProtectedRoute><AllProjects /></ProtectedRoute>} />
+            <Route element={<WithoutGlobal />}>
+            <Route path="/login" element={<Login/>}/>
+            </Route>
               <Route path="/allusers" element={<ProtectedRoute><AllUsers /></ProtectedRoute>} />
               <Route path="/pastprojects" element={<PastProjects />} />
               <Route path="/addnewuser" element={<AddNewUser />} />
               <Route path="/currentprojects" element={<CurrentProjects />} />
               <Route path="/calendar" element={<Calendar />} />
+              <Route element={<WithGlobal />}>
+              <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+              </Route>
+              <Route path="/allprojects" element={<ProtectedRoute><AllProjects /></ProtectedRoute>} />
+            
               
             </Routes>
             
