@@ -9,7 +9,8 @@ export default () => {
     
     <div style={{display:"flex"}}>
     <Sidebar/>
-    <div style={{display:"flex", flexDirection:"column"}}>
+    <div style={{display:"flex", flexDirection:"column" ,height: "100%",
+  width: "100%",}}>
     <Topbar/>
     <Outlet />
     </div>
