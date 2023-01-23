@@ -1,4 +1,4 @@
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React from "react";
 import "../scss/components/table.scss";
 import { useState } from "react";
@@ -107,6 +107,7 @@ const Table = () => {
         pageSize={8}
         rowsPerPageOptions={[8]}
         checkboxSelection
+        components={{Toolbar: GridToolbar}}
       />
       <Profilepopup show={modal} title="My Modal" close={Toggle} CellValll />
     </div>
