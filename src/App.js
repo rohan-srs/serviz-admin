@@ -49,9 +49,8 @@ function App() {
             <Routes>
             <Route element={<WithoutGlobal />}>
             <Route path="/login" element={<Login/>}/>
-            
             </Route>
-              
+            
               <Route element={<WithGlobal />}>
               <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
               <Route path="/allusers" element={<ProtectedRoute><AllUsers /></ProtectedRoute>} />
@@ -61,9 +60,6 @@ function App() {
               <Route path="/calendar" element={<ProtectedRoute><Calendar /></ProtectedRoute>} />
               <Route path="/allprojects" element={<ProtectedRoute><AllProjects /></ProtectedRoute>} />
               </Route>
-              
-            
-              
             </Routes>
             
   
