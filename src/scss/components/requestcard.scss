@@ -1,26 +1,25 @@
 .scrollable-container {
-    overflow-y: auto;
-    max-height: 90vh;
-    align-items: center; /* Set the maximum height of the container */
-  }
-
+  overflow: auto;
+  max-height: 90vh;
+  align-items: center; /* Set the maximum height of the container */
+  scrollbar-width: none;
+}
 
 .card-list {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
 
-  }
-  
-  .card {
-    width: 100%;
-    height: 200px;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 1rem;
-    border: 4px solid #000;
-    background-color: var(--blackBackground);
-    animation: slideIn 0.2s ease-out;
-    position: relative;
+.card {
+  width: 100%;
+  height: 200px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 1rem;
+  border: 4px solid #000;
+  background-color: var(--blackBackground);
+  animation: slideIn 0.2s ease-out;
+  position: relative;
   /* Add media query to make the card responsive */
   @media (max-width: 600px) {
     width: 100%;
@@ -28,91 +27,91 @@
     padding: 10px;
   }
 
-    h2{
-        color: var(--yellowAccent);
-    }
-
-    p{
-        color: whitesmoke;
-    }
+  h2 {
+    color: var(--yellowAccent);
   }
-  
-  .card-actions {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    
 
-    .acceptButton{
-        color: green;
+  p {
+    color: whitesmoke;
+  }
+}
+
+.card-actions {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+
+  .acceptButton {
+    color: green;
     border-color: green;
 
-    &:hover{
+    &:hover {
       color: var(--yellowAccent);
-    border-color: var(--yellowAccent);
+      border-color: var(--yellowAccent);
     }
-    }
+  }
 
-    .rejectButton{
-        color: red;
+  .rejectButton {
+    color: red;
     border-color: red;
-    &:hover{
+    &:hover {
       color: var(--yellowAccent);
-    border-color: var(--yellowAccent);
+      border-color: var(--yellowAccent);
     }
-    }
+  }
+}
 
-    
-  }
-  
-  .card-actions button {
-    margin-left: 5px;
-  }
-  
-  .accepted {
-    border-color: rgb(11, 161, 61);
-    animation: pulse 0.2s ease-in;
-  }
-  
-  .rejected {
-    border-color: rgb(240, 0, 0);
-    animation: shake 0.2s ease-in;
-  }
-  
-  @keyframes slideIn {
-    from {
-      transform: translateX(-100%);
-    }
-    to {
-      transform: translateX(0);
-    }
-  }
-  
-  @keyframes pulse {
-    from {
-      transform: scale(1);
-    }
-    to {
-      transform: scale(1.05);
-    }
-  }
-  
-  @keyframes shake {
-    0% {
-      transform: translateX(0);
-    }
-    25% {
-      transform: translateX(-10px);
-    }
-    50% {
-      transform: translateX(10px);
-    }
-    75% {
-        transform: translateX(10px);
-    }
-    100% {
-        transform: translateX(10px);
-    }
+.card-actions button {
+  margin-left: 5px;
+}
 
-}  
+.accepted {
+  border-color: rgb(11, 161, 61);
+  animation: pulse 0.2s ease-in;
+}
+
+.rejected {
+  border-color: rgb(240, 0, 0);
+  animation: shake 0.2s ease-in;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(10px);
+  }
+}
+
+.scrollable-container::-webkit-scrollbar {
+  display: none;
+}

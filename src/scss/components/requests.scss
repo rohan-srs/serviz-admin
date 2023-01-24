@@ -14,10 +14,9 @@
         height: 100vh;
         padding: 1rem;
         align-items: center;
-        overflow-y: hidden;
+        overflow: hidden;
         .widgets {
             display: flex;
-            
         }
     }
 }
