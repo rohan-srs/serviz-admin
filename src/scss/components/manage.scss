@@ -1,0 +1,74 @@
+@import "./colors.scss";
+.Out {
+  display: flex;
+  height: 100vh;
+
+  .Manage-side {
+    height: 100vh;
+  }
+
+  .Manage-main {
+    padding-top: 1rem;
+    width: 100%;
+    height: 100vh;
+    padding: 1rem;
+    align-items: center;
+
+    .widgets {
+      .expandable-section {
+        border-radius: 2px;
+      }
+      .section1-out {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        margin-top: 10px;
+        background-color: black;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        color: var(--yellowAccent);
+        border-radius: 2rem;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .arrow.expanded {
+        transform: rotate(180deg);
+      }
+      .section1-in {
+        background-color: gray;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        color: var(--yellowAccent);
+        border-radius: 2rem;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+
+      .expandable-section-content {
+        overflow: hidden;
+        transition: height 0.3s ease;
+      }
+
+      .expandable-section-content.collapsed {
+        height: 0;
+      }
+
+      .expandable-section-content.expanded {
+        height: auto;
+      }
+    }
+  }
+
+  .assign-teachers-button {
+    color: var(--yellowAccent);
+    background-color: black;
+  }
+
+  .select-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
