@@ -36,7 +36,7 @@
         transform: rotate(180deg);
       }
       .section1-in {
-        background-color: gray;
+        background-color: black;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         padding: 20px;
         color: var(--yellowAccent);
@@ -63,6 +63,7 @@
   .assign-teachers-button {
     color: var(--yellowAccent);
     background-color: black;
+    border-color: var(--yellowAccent);
   }
 
   .select-row {

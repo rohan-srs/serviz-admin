@@ -89,8 +89,31 @@ export default function Manage({ title, children }) {
                                   name="classname"
                                   label="classname"
                                   value={values.classname}
-                                  style={{ color: "white" }}
-                                  sx={{ gridColumn: "span 4" }}
+                                  style={{}}
+                                  sx={{
+                                    gridColumn: "span 4",
+                                    color: "white",
+                                    ".MuiOutlinedInputNotchedOutline ": {
+                                      borderColor: "rgba(228, 219, 233, 0.25)",
+                                    },
+                                    ".MuiOutlinedInput-root": {
+                                      color: "white",
+                                    },
+                                    "&.Mui-Focused .MuiOutlinedInput-notchedOutline ":
+                                      {
+                                        borderColor:
+                                          "rgba(228, 219, 233, 0.25)",
+                                      },
+                                    "&:hover.MuiOutlinedInputNotchedOutline ": {
+                                      borderColor: "rgba(228, 219, 233, 0.25)",
+                                    },
+                                    MuiOutlinedInput: {
+                                      color: "white",
+                                    },
+                                    ".MuiSvgIcon-root ": {
+                                      fill: "white !important",
+                                    },
+                                  }}
                                   onChange={(e) => {
                                     console.log(
                                       "Current Value",

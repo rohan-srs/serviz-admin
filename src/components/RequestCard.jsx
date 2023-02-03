@@ -37,32 +37,4 @@ const RequestsCard = ({ title, content }) => {
   );
 };
 
-const CardList = () => {
-  const [cards] = useState([
-    { id: 1, title: "Card 1", content: "Content 1" },
-    { id: 2, title: "Card 2", content: "Content 2" },
-    { id: 3, title: "Card 3", content: "Content 3" },
-    { id: 1, title: "Card 1", content: "Content 1" },
-    { id: 2, title: "Card 2", content: "Content 2" },
-    { id: 3, title: "Card 3", content: "Content 3" },
-    { id: 1, title: "Card 1", content: "Content 1" },
-    { id: 2, title: "Card 2", content: "Content 2" },
-    { id: 3, title: "Card 3", content: "Content 3" },
-  ]);
-
-  return (
-    <div className="scrollable-container">
-      <div className="card-list">
-        {cards.map((card) => (
-          <RequestsCard
-            key={card.id}
-            title={card.title}
-            content={card.content}
-          />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default CardList;
+export default RequestsCard;
