@@ -29,14 +29,15 @@ const RequestsCard = ({ title, content, gid }) => {
   //   await docRef.update({ G2062059: updatedArray });
   // };
   const updateMap = async () => {
+    setIsAccepted(true);
     const updatedMap = { ...map };
 
     // modify field in nested map
-    updatedMap.G2062059.status = "new value";
-    console.log(updatedMap.G2062059);
+    updatedMap[gid].status = "new value";
+    console.log(updatedMap[gid]);
 
     const docRef = doc(db, "meta", "project-ideas");
-    await updateDoc(docRef, { G2062059: updatedMap.G2062059 });
+    await updateDoc(docRef, { [gid]: updatedMap[gid] });
   };
 
   const handleAccept = () => {

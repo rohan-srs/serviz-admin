@@ -58,7 +58,7 @@ export default function Requests() {
             <div className="scrollable-container-1">
               <div className="card-list-1">
                 <RequestsCard
-                  key={index}
+                  key={grp_id[index]}
                   title={pTitle[index]}
                   content={item}
                   gid={grp_id[index]}
