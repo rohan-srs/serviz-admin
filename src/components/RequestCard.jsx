@@ -1,9 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../scss/components/requestcard.scss";
 import Button from "@mui/material/Button";
+import { db } from "../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
-const RequestsCard = ({ title, content }) => {
+const RequestsCard = ({ title, content, gid }) => {
   const [isAccepted, setIsAccepted] = useState(false);
+  const [arrayField, setArrayField] = useState([]);
+  const [map, setMap] = useState({});
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const docRef = doc(db, "meta", "project-ideas");
+      const data = await getDoc(docRef);
+      setMap(data.data());
+    };
+    fetchData();
+  }, []);
+
+  // const updateArrayField = async (index, newValue) => {
+  //   const docRef = doc(db, "meta", "project-ideas");
+  //   const docSnap = await getDoc(docRef);
+
+  //   const docdata = docSnap.data();
+  //   const updatedArray = [...docdata.arrayField];
+  //   updatedArray[index] = newValue;
+  //   setArrayField(updatedArray);
+  //   await docRef.update({ G2062059: updatedArray });
+  // };
+  const updateMap = async () => {
+    const updatedMap = { ...map };
+
+    // modify field in nested map
+    updatedMap.G2062059.status = "new value";
+    console.log(updatedMap.G2062059);
+
+    const docRef = doc(db, "meta", "project-ideas");
+    await updateDoc(docRef, { G2062059: updatedMap.G2062059 });
+  };
 
   const handleAccept = () => {
     setIsAccepted(true);
@@ -16,13 +50,11 @@ const RequestsCard = ({ title, content }) => {
   return (
     <div className={`card ${isAccepted ? "accepted" : "rejected"}`}>
       <h2 className="title">{title}</h2>
+      <h2 className="grp_id">{gid}</h2>
       <p className="content">{content}</p>
+
       <div className="card-actions">
-        <Button
-          onClick={handleAccept}
-          variant="outlined"
-          className="acceptButton"
-        >
+        <Button onClick={updateMap} variant="outlined" className="acceptButton">
           Accept
         </Button>
         <Button

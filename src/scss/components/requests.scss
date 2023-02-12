@@ -17,6 +17,16 @@
     overflow: auto;
     scrollbar-width: none;
     .widgets {
+      .fetchButton {
+        display: flex;
+        justify-content: center;
+        margin: 2rem;
+
+        .fetchButtonComp {
+          color: var(--blackBackground);
+          border-color: var(--blackBackground);
+        }
+      }
     }
   }
 }
