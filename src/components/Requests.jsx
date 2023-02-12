@@ -23,9 +23,11 @@ export default function Requests() {
       setData(docSnap.data());
 
       Object.values(Data).forEach((value) => {
-        statuslist.push(value.status);
-        pTitleList.push(value.pTitle);
-        gIDlist.push(value.grp_id);
+        if (value.status == "pending") {
+          statuslist.push(value.status);
+          pTitleList.push(value.pTitle);
+          gIDlist.push(value.grp_id);
+        }
       });
       setstatus(statuslist);
       setpTitle(pTitleList);

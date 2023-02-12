@@ -33,26 +33,27 @@ const RequestsCard = ({ title, content, gid }) => {
     const updatedMap = { ...map };
 
     // modify field in nested map
-    updatedMap[gid].status = "new value";
+    updatedMap[gid].status = "approved";
     console.log(updatedMap[gid]);
 
     const docRef = doc(db, "meta", "project-ideas");
     await updateDoc(docRef, { [gid]: updatedMap[gid] });
   };
 
-  const handleAccept = () => {
-    setIsAccepted(true);
-  };
-
-  const handleReject = () => {
+  const handleReject = async () => {
     setIsAccepted(false);
+    const updatedMap = { ...map };
+    updatedMap[gid].status = "rejected";
+    console.log(updatedMap[gid]);
+
+    const docRef = doc(db, "meta", "project-ideas");
+    await updateDoc(docRef, { [gid]: updatedMap[gid] });
   };
 
   return (
     <div className={`card ${isAccepted ? "accepted" : "rejected"}`}>
       <h2 className="title">{title}</h2>
       <h2 className="grp_id">{gid}</h2>
-      <p className="content">{content}</p>
 
       <div className="card-actions">
         <Button onClick={updateMap} variant="outlined" className="acceptButton">
