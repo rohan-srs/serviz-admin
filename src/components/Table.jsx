@@ -49,6 +49,7 @@ const columns = [
 //   },
 // ];
 
+var CellValll;
 const Table = () => {
   const [data, setData] = useState([]);
 
@@ -70,7 +71,7 @@ const Table = () => {
     fetchData();
   }, []);
   const [modal, setModal] = useState(false);
-  var CellValll;
+  //var CellValll;
   const Toggle = () => setModal(!modal);
   const actionColumn = [
     {
@@ -85,7 +86,7 @@ const Table = () => {
               onClick={() => {
                 Toggle();
                 CellValll = cellValues;
-                console.log(CellValll);
+                //console.log(CellValll.row.name);
               }}
             >
               View
@@ -109,9 +110,9 @@ const Table = () => {
         checkboxSelection
         components={{Toolbar: GridToolbar}}
       />
-      <Profilepopup show={modal} title="My Modal" close={Toggle} CellValll />
+      <Profilepopup show={modal} title="My Modal" close={Toggle} CallValll={CellValll}/>
     </div>
   );
 };
-
+//CallValll={CellValll}
 export default Table;
