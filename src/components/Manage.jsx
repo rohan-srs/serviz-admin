@@ -13,13 +13,22 @@ import {
   FormControl,
 } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import * as yup from "yup";
+import ManageTable from "./ManageTable";
+import { db } from "../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 export default function Manage({ title, children }) {
+  const [selectedOptions, setSelectedOptions] = useState(["", "", "", "", ""]);
   const [expanded, setExpanded] = useState(false);
   const [currentValue, setCurrentValue] = useState([]);
   const isNonMobile = useMediaQuery("(min-width:600px)");
+  const [map, setMap] = useState({});
+
+  const options = {
+    dropdown1: ["Option 1", "Option 2", "Option 3", "Option 4"],
+  };
 
   const handleFormSubmit = async (values) => {};
   return (
@@ -34,7 +43,9 @@ export default function Manage({ title, children }) {
             <div className="expandable-section">
               <div
                 className="expandable-section-header"
-                onClick={() => setExpanded(!expanded)}
+                onClick={() => {
+                  setExpanded(!expanded);
+                }}
               >
                 {
                   <div className="section1-out">
@@ -54,185 +65,7 @@ export default function Manage({ title, children }) {
               >
                 {
                   <div className="section1-in">
-                    <Formik
-                      onSubmit={handleFormSubmit}
-                      initialValues={initialValues}
-                      validationSchema={checkoutSchema}
-                    >
-                      {({
-                        values,
-                        errors,
-                        touched,
-                        handleBlur,
-                        handleChange,
-                        handleSubmit,
-                      }) => (
-                        <form onSubmit={handleSubmit}>
-                          <Box
-                            // display="grid"
-                            // gap="30px"
-                            // gridTemplateColumns="repeat(4, minmax(0, 1fr))"
-                            sx={{
-                              "& > div": {
-                                gridColumn: isNonMobile ? undefined : "span 4",
-                              },
-                            }}
-                          >
-                            <div className="select-row">
-                              <h3>Class 1</h3>
-                              <FormControl style={{ minWidth: 200 }}>
-                                <InputLabel id="select-label">
-                                  Select Teacher
-                                </InputLabel>
-                                <Select
-                                  defaultValue="AIML"
-                                  name="classname"
-                                  label="classname"
-                                  value={values.classname}
-                                  style={{}}
-                                  sx={{
-                                    gridColumn: "span 4",
-                                    color: "white",
-                                    ".MuiOutlinedInputNotchedOutline ": {
-                                      borderColor: "rgba(228, 219, 233, 0.25)",
-                                    },
-                                    ".MuiOutlinedInput-root": {
-                                      color: "white",
-                                    },
-                                    "&.Mui-Focused .MuiOutlinedInput-notchedOutline ":
-                                      {
-                                        borderColor:
-                                          "rgba(228, 219, 233, 0.25)",
-                                      },
-                                    "&:hover.MuiOutlinedInputNotchedOutline ": {
-                                      borderColor: "rgba(228, 219, 233, 0.25)",
-                                    },
-                                    MuiOutlinedInput: {
-                                      color: "white",
-                                    },
-                                    ".MuiSvgIcon-root ": {
-                                      fill: "white !important",
-                                    },
-                                  }}
-                                  onChange={(e) => {
-                                    console.log(
-                                      "Current Value",
-                                      e.target.value
-                                    );
-                                    setCurrentValue(e.target.value);
-                                    values.classname = e.target.value;
-                                  }}
-                                  onBlur={handleBlur}
-                                >
-                                  <MenuItem value={"AIML"}>AIML</MenuItem>
-                                  <MenuItem value={"DS"}>DS</MenuItem>
-                                  <MenuItem value={"IOT"}>IOT</MenuItem>
-                                </Select>
-                              </FormControl>
-                            </div>
-
-                            <div className="select-row">
-                              <h3>Class 1</h3>
-                              <FormControl style={{ minWidth: 200 }}>
-                                <InputLabel id="select-label">
-                                  Select Teacher
-                                </InputLabel>
-                                <Select
-                                  defaultValue="AIML"
-                                  name="classname"
-                                  label="classname"
-                                  value={values.classname}
-                                  style={{ color: "white" }}
-                                  sx={{ gridColumn: "span 4" }}
-                                  onChange={(e) => {
-                                    console.log(
-                                      "Current Value",
-                                      e.target.value
-                                    );
-                                    setCurrentValue(e.target.value);
-                                    values.classname = e.target.value;
-                                  }}
-                                  onBlur={handleBlur}
-                                >
-                                  <MenuItem value={"AIML"}>AIML</MenuItem>
-                                  <MenuItem value={"DS"}>DS</MenuItem>
-                                  <MenuItem value={"IOT"}>IOT</MenuItem>
-                                </Select>
-                              </FormControl>
-                            </div>
-
-                            <div className="select-row">
-                              <h3>Class 1</h3>
-                              <FormControl style={{ minWidth: 200 }}>
-                                <InputLabel id="select-label">
-                                  Select Teacher
-                                </InputLabel>
-                                <Select
-                                  defaultValue="AIML"
-                                  name="classname"
-                                  label="classname"
-                                  value={values.classname}
-                                  style={{ color: "white" }}
-                                  sx={{ gridColumn: "span 4" }}
-                                  onChange={(e) => {
-                                    console.log(
-                                      "Current Value",
-                                      e.target.value
-                                    );
-                                    setCurrentValue(e.target.value);
-                                    values.classname = e.target.value;
-                                  }}
-                                  onBlur={handleBlur}
-                                >
-                                  <MenuItem value={"AIML"}>AIML</MenuItem>
-                                  <MenuItem value={"DS"}>DS</MenuItem>
-                                  <MenuItem value={"IOT"}>IOT</MenuItem>
-                                </Select>
-                              </FormControl>
-                            </div>
-
-                            <div className="select-row">
-                              <h3>Class 1</h3>
-                              <FormControl style={{ minWidth: 200 }}>
-                                <InputLabel id="select-label">
-                                  Select Teacher
-                                </InputLabel>
-                                <Select
-                                  defaultValue="AIML"
-                                  name="classname"
-                                  label="classname"
-                                  value={values.classname}
-                                  style={{ color: "white" }}
-                                  sx={{ gridColumn: "span 4" }}
-                                  onChange={(e) => {
-                                    console.log(
-                                      "Current Value",
-                                      e.target.value
-                                    );
-                                    setCurrentValue(e.target.value);
-                                    values.classname = e.target.value;
-                                  }}
-                                  onBlur={handleBlur}
-                                >
-                                  <MenuItem value={"AIML"}>AIML</MenuItem>
-                                  <MenuItem value={"DS"}>DS</MenuItem>
-                                  <MenuItem value={"IOT"}>IOT</MenuItem>
-                                </Select>
-                              </FormControl>
-                            </div>
-                          </Box>
-                          <Box display="flex" justifyContent="end" mt="20px">
-                            <Button
-                              type="submit"
-                              className="assign-teachers-button"
-                              variant="contained"
-                            >
-                              Assign
-                            </Button>
-                          </Box>
-                        </form>
-                      )}
-                    </Formik>
+                    <ManageTable />
                   </div>
                 }
               </div>
@@ -251,6 +84,6 @@ const checkoutSchema = yup.object().shape({
 });
 
 const initialValues = {
-  classname: "",
+  dropdown1: "",
   // address2: "",
 };

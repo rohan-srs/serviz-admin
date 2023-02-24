@@ -42,6 +42,7 @@ const RequestsCard = ({ title, content, gid }) => {
 
   const handleReject = async () => {
     setIsAccepted(false);
+
     const updatedMap = { ...map };
     updatedMap[gid].status = "rejected";
     console.log(updatedMap[gid]);
