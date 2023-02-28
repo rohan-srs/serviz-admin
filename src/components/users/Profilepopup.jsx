@@ -1,10 +1,10 @@
 import React from "react";
 
 //export default function Profilepopup({ show, close, CallValll }) {
-  export default function Profilepopup(props) {
-    const CallValll=props.CallValll;
-    const show=props.show;
-    const close=props.close;
+export default function Profilepopup(props) {
+  const CallValll = props.CallValll;
+  const show = props.show;
+  const close = props.close;
   return (
     <>
       {show ? (
@@ -15,14 +15,14 @@ import React from "react";
             </header>
             <main className="modal_content">
               <div>
-                Name     : {CallValll.row.name}
-                <br/>
-                Reg No   : {CallValll.row.reg_no}
-                <br/>
-                Class    : {CallValll.row.classname}
-                <br/>
+                Name : {CallValll.row.name}
+                <br />
+                Reg No : {CallValll.row.reg_no}
+                <br />
+                Class : {CallValll.row.classname}
+                <br />
                 Group ID : {CallValll.row.grp_id}
-                <br/>
+                <br />
               </div>
             </main>
             <footer className="modal_footer">

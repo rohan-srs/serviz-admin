@@ -2,43 +2,41 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React from "react";
 import "../scss/components/table.scss";
 import { useState } from "react";
-import Profilepopup from "./users/Profilepopup";
+import Editpopup from "./manage/Editpopup";
 import { useEffect } from "react";
-import { collection, getDoc, doc } from "firebase/firestore";
+import { collection, getDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { MapsHomeWork } from "@mui/icons-material";
 
 const columns = [
-  { field: "class", headerName: "Class", width: 70 },
-  { field: "teachers", headerName: "Teachers", width: 100 },
+  { field: "id", headerName: "Class", width: 70 },
+  { field: "teacher", headerName: "Teachers", width: 300 },
 ];
-
+var CellValll;
 const ManageTable = () => {
   const [data, setData] = useState([]);
-  const [classname, setClassname] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
       let list = [];
       try {
-        const docRef = doc(db, "meta", "class2");
-        await getDoc(docRef).then((data) => {
-          // console.log(data.data().sections["A"]);
-
-          // console.log(data.data());
-          setClassname(data.data());
+        const querySnapshot = await getDocs(
+          collection(db, "meta", "class2", "sections1")
+        );
+        querySnapshot.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
         });
 
-        console.log("fitrst", classname);
+        setData(list);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchData();
-  }, []);
+  });
   const [modal, setModal] = useState(false);
-  var CellValll;
+
   const Toggle = () => setModal(!modal);
   const actionColumn = [
     {
@@ -56,7 +54,7 @@ const ManageTable = () => {
                 console.log(CellValll);
               }}
             >
-              View
+              Edit
             </div>
           </div>
         );
@@ -69,15 +67,20 @@ const ManageTable = () => {
         sx={{
           borderColor: "black",
         }}
-        rows={classname}
-        getRowId={(rows) => rows}
+        rows={data}
+        getRowId={(rows) => rows.teacher}
         columns={columns.concat(actionColumn)}
         pageSize={8}
         rowsPerPageOptions={[8]}
         checkboxSelection
         components={{ Toolbar: GridToolbar }}
       />
-      <Profilepopup show={modal} title="My Modal" close={Toggle} CellValll />
+      <Editpopup
+        show={modal}
+        title="My Modal"
+        close={Toggle}
+        CallValll={CellValll}
+      />
     </div>
   );
 };
