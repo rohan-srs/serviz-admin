@@ -7,6 +7,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Select from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 import { useState, useEffect } from "react";
+import { getDoc, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -43,15 +45,17 @@ export default function Editpopup(props) {
   // }
   const rtvalue0 = [CallValll?.row?.teacher];
   const [personName, setPersonName] = useState();
-  const [checked, setChecked] = useState();
+  const arr = [];
   useEffect(() => {
-    if (rtvalue0.length === 1) {
-      const rtvalue1 = rtvalue0[0];
-      const rtvalue2 = rtvalue0[1];
-      setPersonName([rtvalue1, rtvalue2]);
-    } else {
-      setPersonName([rtvalue0]);
-    }
+    // if (rtvalue0.length === 1) {
+    //   const rtvalue1 = rtvalue0[0];
+    //   const rtvalue2 = rtvalue0[1];
+    //   setPersonName([rtvalue1, rtvalue2]);
+    // } else {
+    //   setPersonName([rtvalue0]);
+    // }
+
+    setPersonName(rtvalue0);
   }, [props.CallValll]);
 
   const handleChange = (event) => {
@@ -63,6 +67,7 @@ export default function Editpopup(props) {
       typeof value === "string" ? value.split(",") : value
     );
   };
+  // const handleTeacherSelect = (event) => {};
   return (
     <>
       {show ? (
@@ -81,7 +86,6 @@ export default function Editpopup(props) {
                   <Select
                     labelId="demo-multiple-checkbox-label"
                     id="demo-multiple-checkbox"
-                    multiple
                     value={personName}
                     onChange={handleChange}
                     input={<OutlinedInput label="Teachers" />}
@@ -103,7 +107,22 @@ export default function Editpopup(props) {
                 Cancel
               </button>
 
-              <button className="submit">Submit</button>
+              <button
+                className="submit"
+                onClick={() => {
+                  const docRef = doc(
+                    db,
+                    "meta",
+                    "class2",
+                    "sections1",
+                    CallValll.row.id
+                  );
+
+                  updateDoc(docRef, { teacher: personName });
+                }}
+              >
+                Submit
+              </button>
             </footer>
           </div>
         </div>

@@ -34,7 +34,7 @@ const ManageTable = () => {
     };
 
     fetchData();
-  });
+  }, []);
   const [modal, setModal] = useState(false);
 
   const Toggle = () => setModal(!modal);
