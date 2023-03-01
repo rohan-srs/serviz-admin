@@ -48,8 +48,9 @@ const ManageTable = () => {
           <div className="cellAction">
             <div
               className="viewButton"
-              onClick={() => {
+              onClick={(e) => {
                 Toggle();
+                e.stopPropagation();
                 CellValll = cellValues;
                 console.log(CellValll);
               }}
