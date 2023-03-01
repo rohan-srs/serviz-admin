@@ -25,9 +25,9 @@ export default function Sidebar() {
         <Button name={"Manage"} icon={<RiSettings5Fill />} route={"/manage"} />
         <Button name={"Requests"} icon={<FaLightbulb />} route={"/requests"} />
         <Button
-          name={"Projects"}
+          name={"Groups"}
           icon={<BsFillFileEarmarkCodeFill />}
-          route={"/projects"}
+          route={"/groups"}
         />
       </div>
       <Logout />

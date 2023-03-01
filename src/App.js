@@ -10,6 +10,7 @@ import New from "./components/New";
 import AllProjects from "./components/AllProjects"
 import Requests from "./components/Requests";
 import Manage from "./components/Manage";
+import Groups from "./components/Groups";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
@@ -42,6 +43,16 @@ function App() {
             element={
               <ProtectedRoute>
                 <Users />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            exact
+            path="/groups"
+            element={
+              <ProtectedRoute>
+                <Groups />
               </ProtectedRoute>
             }
           />

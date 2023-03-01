@@ -2,52 +2,36 @@ import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React from "react";
 import "../scss/components/table.scss";
 import { useState } from "react";
-import Profilepopup from "./users/Profilepopup";
+import GroupsPopup from "./GroupsPopup.jsx";
 import { useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
 const columns = [
-  { field: "id", headerName: "ID", width: 70 },
-  { field: "reg_no", headerName: "Register No", width: 100 },
-  { field: "name", headerName: "Name", width: 150 },
+  { field: "id", headerName: "ID", width: 150 },
+  /*{ field: "name", headerName: "Name", width: 150 },
   {
     field: "classname",
     headerName: "Class",
-    width: 90,
-  },
+    width: 150,
+  },*/
   {
     field: "grp_id",
     headerName: "Group ID",
     description: "This column has the Group ID",
-    sortable: false,
-    width: 160,
+    width: 200,
+  },
+  {
+    field: "faculty_name",
+    headerName: "Faculty",
+    width: 200,
+  },
+  {
+    field: "members",
+    headerName: "Students",
+    width: 200,
   },
 ];
-
-// const rows = [
-//   {
-//     id: 1,
-//     regno: "2062025",
-//     Name: "Jon",
-//     class: "AIML",
-//     groupid: "G2062025AIML",
-//   },
-//   {
-//     id: 2,
-//     regno: "2062025",
-//     Name: "Jon",
-//     class: "AIML",
-//     groupid: "G2062025AIML",
-//   },
-//   {
-//     id: 3,
-//     regno: "2062025",
-//     Name: "Jon",
-//     class: "AIML",
-//     groupid: "G2062025AIML",
-//   },
-// ];
 
 var CellValll;
 const Table = () => {
@@ -57,7 +41,7 @@ const Table = () => {
     const fetchData = async () => {
       let list = [];
       try {
-        const querySnapshot = await getDocs(collection(db, "users"));
+        const querySnapshot = await getDocs(collection(db, "group"));
         querySnapshot.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data() });
         });
@@ -111,7 +95,7 @@ const Table = () => {
         checkboxSelection
         components={{Toolbar: GridToolbar}}
       />
-      <Profilepopup show={modal} title="My Modal" close={Toggle} CallValll={CellValll}/>
+      <GroupsPopup show={modal} title="My Modal" close={Toggle} CallValll={CellValll}/>
     </div>
   );
 };
