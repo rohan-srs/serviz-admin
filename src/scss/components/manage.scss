@@ -43,6 +43,15 @@
         border-radius: 2rem;
         border-top-left-radius: 0;
         border-top-right-radius: 0;
+
+        .addteacher-button {
+          .addButton {
+            color: var(--yellowAccent);
+            border-color: var(--yellowAccent);
+            margin-bottom: 1rem;
+            margin-left: auto;
+          }
+        }
       }
 
       .expandable-section-content {

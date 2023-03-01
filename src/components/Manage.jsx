@@ -3,18 +3,11 @@ import Sidebar from "./Sidebar";
 import "../scss/components/manage.scss";
 import React, { useState } from "react";
 import { BsArrowDownCircleFill } from "react-icons/bs";
-import {
-  Box,
-  Button,
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  FormControl,
-} from "@mui/material";
+import { Button } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Formik, Field } from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 import ManageTable from "./ManageTable";
 import { db } from "../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
@@ -28,6 +21,12 @@ export default function Manage({ title, children }) {
 
   const options = {
     dropdown1: ["Option 1", "Option 2", "Option 3", "Option 4"],
+  };
+  const navigate = useNavigate();
+
+  const navigateToaddnewuser = () => {
+    // 👇️ navigate to /contacts
+    navigate("/addnewuser");
   };
 
   const handleFormSubmit = async (values) => {};
@@ -65,6 +64,16 @@ export default function Manage({ title, children }) {
               >
                 {
                   <div className="section1-in">
+                    <div className="addteacher-button">
+                      <Button
+                        variant="outlined"
+                        className="addButton"
+                        onClick={navigateToaddnewuser}
+                      >
+                        Add
+                      </Button>
+                    </div>
+
                     <ManageTable />
                   </div>
                 }

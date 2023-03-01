@@ -1,69 +1,69 @@
 @import "./colors";
 
-.out{
-  width:100%;
+.out {
+  width: 100%;
   display: flex;
   flex-direction: row;
 
-  .new{
+  .new {
     height: 100vh;
   }
 
-  .newContainer{
+  .newContainer {
     padding-top: 1rem;
     padding-left: 1rem;
     height: 100vh;
     align-items: center;
-    
-    .top,.bottom{
+
+    .top {
+    }
+    .bottom {
       padding: 10px;
       margin: 20px;
       display: flex;
 
-      .left{
-        flex:1;
+      .left {
+        flex: 1;
         text-align: center;
 
-        img{
+        img {
           width: 100px;
           height: 100px;
           border-radius: 50%;
-          object-fit: cover
-        };
+          object-fit: cover;
+        }
       }
 
-      .right{
-        flex:2;
+      .right {
+        flex: 2;
 
-        form{
+        form {
           display: flex;
           flex-wrap: wrap;
           gap: 20px;
 
-          .formInput{
+          .formInput {
             width: 40%;
 
-            label{
+            label {
               display: flex;
               align-items: center;
               gap: 10px;
 
-              .icon{
+              .icon {
                 cursor: pointer;
               }
             }
 
-            input{
+            input {
               width: 100%;
               padding: 5px;
               border: none;
               color: var(--blackBackground);
             }
-
-            
           }
 
-          .createuserbtn{
+          .createuserbtn {
             color: var(--blackBackground);
             border-color: var(--blackBackground);
             cursor: pointer;
@@ -73,5 +73,4 @@
       }
     }
   }
-  
 }
