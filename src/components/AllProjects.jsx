@@ -3,7 +3,7 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import ProjectsTable from "./ProjectsTable";
 import Button from "@mui/material/Button";
-import Table from "./Table";
+import CurrentProjectsTable from "./CurrentProjectsTable";
 
 export default function AllProjects() {
   const [TableType, setTableType] = useState("tab1");
@@ -56,9 +56,9 @@ export default function AllProjects() {
             {TableType === "tab1" ? (
               <ProjectsTable />
             ) : TableType === "tab2" ? (
-              <ProjectsTable />
+              <CurrentProjectsTable />
             ) : (
-              <Table />
+              <ProjectsTable />
             )}
           </div>
         </div>

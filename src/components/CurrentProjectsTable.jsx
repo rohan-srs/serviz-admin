@@ -1,11 +1,11 @@
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import React from "react";
-import "../scss/components/currentProjectsTable.scss";
+//import "../scss/components/currentProjectsTable.scss";
 import { useState } from "react";
 import { useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
-import Profilepopup from "./users/Profilepopup";
+import ProjectsPopup from "./ProjectsPopup";
 
 const columns = [
   { field: "project_title", headerName: "Project Title", width: 150 },
@@ -24,6 +24,7 @@ const columns = [
   },
 ];
 
+var cellVal;
 const ProjectsTable = () => {
   const [data, setData] = useState([]);
 
@@ -56,9 +57,11 @@ const ProjectsTable = () => {
           <div className="cellAction">
             <div
               className="viewButton"
-              onClick={() => {
+              onClick={(e) => {
                 Toggle();
-                console.log(cellValues);
+                e.stopPropagation();
+                cellVal=cellValues;
+                //console.log(cellValues);
               }}
             >
               View
@@ -80,8 +83,9 @@ const ProjectsTable = () => {
         pageSize={12}
         rowsPerPageOptions={[12]}
         checkboxSelection
+        components={{Toolbar: GridToolbar}}
       />
-      <Profilepopup show={modal} title="My Modal" close={Toggle} />
+      <ProjectsPopup show={modal} title="My Modal" close={Toggle} CallValll={cellVal}/>
     </div>
   );
 };
